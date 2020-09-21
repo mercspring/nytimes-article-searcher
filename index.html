@@ -1,58 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js"></script>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    var query = "";
+    var page = 0;
+    var beginDate = 20200101;
+    var endDate = 20200101;
+    var queryURL = `https://api.nytimes.com/svc/search/v2/articlesearch.json?q=${query}&begin_date=${beginDate}&end_date=${endDate}&page=${page}&api-key=Fz0qIwh8wLeN9uGg1zpZG4ShSVFrcdGJi`
+    $.ajax({
+      url: queryURL,
+      method: "GET"
+    }).then(function () {
+    })
+  </script>
 </head>
+
 <body>
-  <div class="jumbotron jumbotron-fluid">
-    <div class="container">
+
+  <div class="container">
+    <div class="jumbotron jumbotron-fluid">
       <h1 class="header h1">New York Times Search</h1>
     </div>
-   <div>
-            
+    <div class="card">
+      <h5 class="card-header">
+        Search Parameters
+      </h5>
+      <div class="card-body">
+        <p class="card-text">
+        <form>
+          <div class="form-group">
+            <label for="searchInput">Search Term</label>
+            <input type="Search" class="form-control" id="searchInput" placeholder="">
           </div>
-        </div>
-   </div>
+          <div class="form-group">
+            <label for="numberSelect">Number of Records to Retrieve</label>
+            <select class="form-control" id="numberSelect">
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="startyearInput">Start Year (Optional)</label>
+            <input type="Search" class="form-control" id="startyearInput" placeholder="">
+          </div>
+          <div class="form-group">
+            <label for="startyearInput">End Year (Optional)</label>
+            <input type="Search" class="form-control" id="startyearInput" placeholder="">
+          </div>
+          <button class="btn btn-primary search">Search</button>
+          <button class="btn btn-primary clear">Clear Results</button>
 
-      
+        </form>
+        </p>
+      </div>
+    </div>
+    <div class="card">
+      <h5 class="card-header">Top Articles</h5>
+      <div class="card-body">
+        top articles go here
+      </div>
     </div>
   </div>
-    <form>
-        <div class="form-group">
-          <label for="exampleFormControlInput1">Search Term</label>
-          <input type="Search" class="form-control" id="exampleFormControlInput1" placeholder="">
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect1">Example select</label>
-          <select class="form-control" id="exampleFormControlSelect1">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlSelect2">Example multiple select</label>
-          <select multiple class="form-control" id="exampleFormControlSelect2">
-            <option>1</option>
-            <option>2</option>
-            <option>3</option>
-            <option>4</option>
-            <option>5</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="exampleFormControlTextarea1">Example textarea</label>
-          <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-        </div>
-      </form>
-      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
 </body>
+
 </html>
