@@ -1,15 +1,10 @@
-
 body{
     background-color: aliceblue;
 }
 
-.jumbotron {
+h1{
     background-color: blue;
     text-align: center;
     color: white;
     padding: 5%
-}
-
-.card {
-    margin-bottom: 50px;
 }
