@@ -3,10 +3,13 @@ body{
     background-color: aliceblue;
 }
 
-h1{
+.jumbotron {
     background-color: blue;
     text-align: center;
     color: white;
     padding: 5%
 }
 
+.card {
+    margin-bottom: 50px;
+}
